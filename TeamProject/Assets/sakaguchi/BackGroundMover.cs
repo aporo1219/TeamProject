@@ -23,6 +23,7 @@ public class BackGroundMover : MonoBehaviour
 	{
 		if (m_material)
 		{
+			// xとyの値が0 ～ 1でリピートするようにする
 			var x = Mathf.Repeat(Time.time * m_offsetSpeed.x, k_maxLength);
 			var y = Mathf.Repeat(Time.time * m_offsetSpeed.y, k_maxLength);
 			var offset = new Vector2(x, y);
@@ -32,6 +33,7 @@ public class BackGroundMover : MonoBehaviour
 
 	private void OnDestroy()
 	{
+		// ゲームをやめた後にマテリアルのOffsetを戻しておく
 		if (m_material)
 		{
 			m_material.SetTextureOffset(k_propName, Vector2.zero);
